@@ -1,0 +1,9 @@
+services:
+  velora:
+    build: .
+    container_name: velora-app
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+    restart: unless-stopped
