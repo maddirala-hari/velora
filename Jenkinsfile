@@ -107,7 +107,7 @@ SCRIPT
                     COMMAND_ID=$(aws ssm send-command \
                       --instance-ids ${APP_INSTANCE_ID} \
                       --document-name AWS-RunShellScript \
-                      --parameters "{\"commands\":[\"echo ${ENCODED_SCRIPT} | base64 -d | bash\"]}" \
+                      --parameters "commands=echo ${ENCODED_SCRIPT} | base64 -d | bash" \
                       --region ${AWS_REGION} \
                       --query 'Command.CommandId' \
                       --output text)
