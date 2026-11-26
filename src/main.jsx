@@ -247,8 +247,8 @@ function App() {
         {cart.length === 0 ? <div className="empty-cart"><ShoppingBag size={34} /><h3>Your bag is taking a breather.</h3><p>Find something that feels like you.</p><button className="primary-btn" onClick={() => setCartOpen(false)}>Explore pieces <ArrowRight size={16} /></button></div> :
           <><div className="cart-items">{cart.map(item => <div className="cart-item" key={item.itemId}>
             <img src={item.image} alt={item.name} /><div className="cart-item-info"><h3>{item.name}</h3><span>{item.color} / Size {item.size}</span><strong>{money(item.price)}</strong>
-              <div className="qty"><button onClick={() => setCart(c => c.map(x => x.itemId === item.itemId ? { ...x, qty: Math.max(1, x.qty - 1) } : x)}>−</button><span>{item.qty}</span>
-                <button onClick={() => setCart(c => c.map(x => x.itemId === item.itemId ? { ...x, qty: x.qty + 1 } : x)}>+</button>
+              <div className="qty"><button onClick={() => setCart(c => c.map(x => x.itemId === item.itemId ? { ...x, qty: Math.max(1, x.qty - 1) } : x))}>−</button><span>{item.qty}</span>
+                <button onClick={() => setCart(c => c.map(x => x.itemId === item.itemId ? { ...x, qty: x.qty + 1 } : x))}>+</button>
                 <button className="remove" onClick={() => setCart(c => c.filter(x => x.itemId !== item.itemId))}>Remove</button></div>
             </div></div>)}</div>
             <div className="cart-bottom"><div className="subtotal"><span>Subtotal</span><strong>{money(total)}</strong></div><small>Shipping and taxes calculated at checkout.</small>
